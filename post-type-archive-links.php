@@ -375,6 +375,8 @@ class Post_Type_Archive_Links {
 			return $menu_item;
 
 		$post_type = $menu_item->object;
+		$post_type_obj = get_post_type_object( $post_type );
+		$menu_item->title = esc_html( $post_type_obj->labels->name );
 		$menu_item->type_label = __( 'Archive', 'hptal-textdomain' );
 		$menu_item->url = get_post_type_archive_link( $post_type );
 
